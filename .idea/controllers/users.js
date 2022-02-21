@@ -12,7 +12,7 @@ module.exports.register = async (req, res, next) => {
         req.login(registeredUser, err => {
             if (err) return next(err);
             req.flash('success', 'Welcome to Yelp Camp!');
-            //res.redirect('/campgrounds');
+            res.redirect('/home');
         })
     } catch (e) {
         req.flash('error', e.message);
@@ -35,5 +35,5 @@ module.exports.logout = (req, res) => {
     req.logout();
     // req.session.destroy();
     req.flash('success', "Goodbye!");
-    //res.redirect('/campgrounds');
+    res.redirect('/home');
 }
