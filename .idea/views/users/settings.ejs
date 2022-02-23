@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/home.css">
 <div class="row">
     <div class="col-6">
 
@@ -8,7 +9,7 @@
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Имя: <%= currentUser.username%></li>
-                <li class="list-group-item">Submitted by <%= currentUser.username%></li>
+                <li class="list-group-item">Электронная почта: <%= currentUser.email%></li>
             </ul>
         </div>
 
