@@ -16,3 +16,9 @@ const UserSchema = new Schema({
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', UserSchema);
+
+UserSchema.virtual('properties.popUpMarkup').get(function () {
+    return `
+    <strong><a href="/admin/${this._id}">${this.Name}</a><strong>
+    <p>${this.description.substring(0, 20)}...</p>`
+});

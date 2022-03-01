@@ -10,7 +10,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Имя: <%= currentUser.username%></li>
                 <% if(currentUser.type !== 'user') {%>
-                    <li class="list-group-item">Роль: <%= currentUser.type%></li>
+                    <li class="list-group-item">Профиль: <%= currentUser.type%></li>
                 <% } %>
                 <li class="list-group-item">Электронная почта: <%= currentUser.email%></li>
             </ul>
