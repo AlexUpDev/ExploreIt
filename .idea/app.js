@@ -14,6 +14,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 
+const adminRoutes = require('./routes/admin');
 const newsRoutes = require('./routes/news');
 const userRoutes = require('./routes/users');
 
@@ -65,6 +66,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     next();
 })
+app.use('/', adminRoutes);
 app.use('/', newsRoutes);
 app.use('/', userRoutes);
 /*
