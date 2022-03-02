@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+<div class="row">
+    <div class="col-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Настройки пользователя</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Имя: <%= user.username%></li>
+                <% if(user.type === 'admin') {%>
+                    <li class="list-group-item">Профиль: <%= user.type%></li>
+                <% } %>
+                <li class="list-group-item">Электронная почта: <%= user.email%></li>
+                <li class="list-group-item">
+                    <% if(user.type === 'admin') {%>
+                        <a class="btn btn-warning" href="#">Заблокировать</a>
+                    <% } %>
+                    <a class="btn btn-danger" href="#">Удалить</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    const user = <%- JSON.stringify(user) %>
+</script>

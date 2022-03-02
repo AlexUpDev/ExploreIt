@@ -35,6 +35,34 @@ module.exports.renderUserInfo = (req, res) => {
     res.render('users/info');
 }
 
+module.exports.showEdit = async (req, res,) => {
+    const user = await User.findById(req.params.id);
+    /*
+    if (!user) {
+        req.flash('error', 'Cannot find that campground!');
+        return res.redirect('/campgrounds');
+    }
+     */
+    res.render('/users/edit', { user });
+}
+/*
+module.exports.updateUser = async (req, res) => {
+    const { id } = req.params;
+    console.log(req.body);
+    const user = await User.findByIdAndUpdate(id, { ...req.body.user });
+    await user.save();
+    req.flash('success', 'Successfully updated campground!');
+    res.redirect(`/users/${user._id}`)
+}
+
+module.exports.deleteUser = async (req, res) => {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted campground')
+    res.redirect('/admin');
+}
+*/
+
 module.exports.logout = (req, res) => {
     req.logout();
     // req.session.destroy();

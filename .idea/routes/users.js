@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
 const users = require('../controllers/users');
 
-const { isLoggedIn } = require('../middleware');
+const { isLoggedIn, validateUser } = require('../middleware');
 
 router.route('/register')
     .get(users.renderRegister)
@@ -16,6 +16,11 @@ router.route('/login')
     .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
 router.get('/info', isLoggedIn, users.renderUserInfo)
+
+router.route('/users/:id')
+    .get(catchAsync(users.showEdit))
+    //.put(isLoggedIn, validateUser, catchAsync(users.updateUser))
+    //.delete(isLoggedIn, catchAsync(users.deleteUser));
 
 router.get('/logout', users.logout)
 
