@@ -31,8 +31,8 @@ module.exports.login = (req, res) => {
     res.redirect(redirectUrl);
 }
 
-module.exports.renderSettings = (req, res) => {
-    res.render('users/settings');
+module.exports.renderUserInfo = (req, res) => {
+    res.render('users/info');
 }
 
 module.exports.logout = (req, res) => {

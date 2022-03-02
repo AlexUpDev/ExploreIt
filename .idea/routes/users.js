@@ -15,7 +15,7 @@ router.route('/login')
     .get(users.renderLogin)
     .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
 
-router.get('/settings', isLoggedIn, users.renderSettings)
+router.get('/info', isLoggedIn, users.renderUserInfo)
 
 router.get('/logout', users.logout)
 
