@@ -10,6 +10,9 @@ const UserSchema = new Schema({
     },
     type: {
         type: String
+    },
+    state: {
+        type: String
     }
 });
 

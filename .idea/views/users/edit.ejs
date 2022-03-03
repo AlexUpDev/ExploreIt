@@ -13,7 +13,7 @@
                 <% } %>
                 <li class="list-group-item">Электронная почта: <%= user.email%></li>
                 <li class="list-group-item">
-                    <% if(user.type === 'admin') {%>
+                    <% if(currentUser.type === 'admin') {%>
                         <a class="btn btn-warning" href="#">Заблокировать</a>
                     <% } %>
                     <a class="btn btn-danger" href="#">Удалить</a>
