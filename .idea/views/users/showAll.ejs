@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+<div class="row">
+    <div class="col-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <nav class="mb-4">
+                    <a class="btn btn-dark" href="/admin">Вернуться</a>
+                </nav>
+                <h5 class="card-title">Пользователи</h5>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Имя</th>
+                        <th scope="col">Профиль</th>
+                        <th scope="col">Email</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (let user of users){%>
+                        <tr>
+                            <td><%= user.username%></td>
+                            <td><%= user.type%></td>
+                            <td><%= user.email%></td>
+                            <td>
+                                <a class="btn btn-warning" href="/users/<%=user._id%>">Редактировать</a>
+                            </td>
+                        </tr>
+                    <% }%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const users = { features: <%- JSON.stringify(users) %> }
+</script>

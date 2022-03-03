@@ -31,19 +31,23 @@ module.exports.login = (req, res) => {
     res.redirect(redirectUrl);
 }
 
+module.exports.renderShowAll = async (req, res) => {
+    const users = await User.find({}).populate('popupText');
+    res.render('users/showAll', { users });
+}
+
 module.exports.renderUserInfo = (req, res) => {
     res.render('users/info');
 }
 
-module.exports.showEdit = async (req, res,) => {
+module.exports.showEdit = async (req, res) => {
+
     const user = await User.findById(req.params.id);
-    /*
     if (!user) {
-        req.flash('error', 'Cannot find that campground!');
-        return res.redirect('/campgrounds');
+        req.flash('error', 'Cannot find User!');
+        return res.redirect('/users');
     }
-     */
-    res.render('/users/edit', { user });
+    res.render('users/edit', { user });
 }
 /*
 module.exports.updateUser = async (req, res) => {

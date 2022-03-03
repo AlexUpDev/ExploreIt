@@ -17,6 +17,8 @@ router.route('/login')
 
 router.get('/info', isLoggedIn, users.renderUserInfo)
 
+router.get('/users', isLoggedIn, users.renderShowAll)
+
 router.route('/users/:id')
     .get(catchAsync(users.showEdit))
     //.put(isLoggedIn, validateUser, catchAsync(users.updateUser))
