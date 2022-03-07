@@ -35,11 +35,11 @@ module.exports.login = (req, res) => {
 
 module.exports.renderShowAll = async (req, res) => {
     const users = await User.find({}).populate('popupText');
-    res.render('users/showAll', { users });
+    res.render('users/showAll', { constants, users });
 }
 
 module.exports.renderUserInfo = (req, res) => {
-    res.render('users/info');
+    res.render('users/info', { constants });
 }
 
 module.exports.showEdit = async (req, res) => {
@@ -49,7 +49,7 @@ module.exports.showEdit = async (req, res) => {
         req.flash('error', 'Cannot find User!');
         return res.redirect('/users');
     }
-    res.render('users/edit', { user });
+    res.render('users/edit', { constants, user });
 }
 /*
 module.exports.updateUser = async (req, res) => {
