@@ -5,14 +5,14 @@
 
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">Настройки пользователя</h5>
+                <h5 class="card-title"><%=constants.labelsRus.GENERAL_INFO%></h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Имя: <%= currentUser.username%></li>
+                <li class="list-group-item"><%=constants.labelsRus.USERNAME%>: <%= currentUser.username%></li>
                 <% if(currentUser.type !== 'user') {%>
-                    <li class="list-group-item">Профиль: <%= currentUser.type%></li>
+                    <li class="list-group-item"><%=constants.labelsRus.PROFILE%>: <%= currentUser.type%></li>
                 <% } %>
-                <li class="list-group-item">Электронная почта: <%= currentUser.email%></li>
+                <li class="list-group-item"><%=constants.labelsRus.EMAIL%>: <%= currentUser.email%></li>
             </ul>
         </div>
 

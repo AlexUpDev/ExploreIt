@@ -12,6 +12,11 @@
                 <a class="nav-link" aria-current="page" href="#">Истории</a>
             </div>
             <div class="navbar-nav ml-auto">
+
+                <span class="nav-link">Eng</span>
+                <span class="nav-link" aria-current="page">Rus</span>
+            </div>
+            <div class="navbar-nav ml-auto">
                 <% if(!currentUser) {%>
                     <a class="nav-link" href="/login" id="login-link"><%=constants.labelsRus.LOG_IN%></a>
                     <a class="nav-link" href="/register"><%=constants.labelsRus.SIGN_IN%></a>
@@ -30,9 +35,9 @@
                         </svg>
                     </a>
                     <% if(currentUser.type === 'admin') {%>
-                        <a class="nav-link" href="/admin">Настройки</a>
+                        <a class="nav-link" href="/admin"><%=constants.labelsRus.SETUP%></a>
                     <% } %>
-                    <a class="nav-link" href="/logout">Выход</a>
+                    <a class="nav-link" href="/logout"><%=constants.labelsRus.LOG_OUT%></a>
                 <% } %>
             </div>
         </div>

@@ -73,7 +73,6 @@ app.use('/', newsRoutes);
 app.use('/', userRoutes);
 
 app.get('/', (req, res) => {
-    console.log('Constants: ', constants);
     res.render('home', { constants })
 });
 
