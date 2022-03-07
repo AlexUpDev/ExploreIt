@@ -5,30 +5,30 @@
         <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <h5 class="card-title">Регистрация</h5>
+                    <h5 class="card-title"><%=constants.labelsRus.SIGN_IN%></h5>
                     <form action="/register" method="POST" class="validated-form" novalidate>
                         <div class="mb-3">
-                            <label class="form-label" for="username">Имя пользователя</label>
+                            <label class="form-label" for="username"><%=constants.labelsRus.USERNAME%></label>
                             <input class="form-control" type="text" id="username" name="username" required autofocus>
                             <div class="valid-feedback">
-                                Заполнено!
+                                <%=constants.labelsRus.FILLED%>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="email">Электронная почта</label>
+                            <label class="form-label" for="email"><%=constants.labelsRus.EMAIL%></label>
                             <input class="form-control" type="email" id="email" name="email" required>
                             <div class="valid-feedback">
-                                Заполнено!
+                                <%=constants.labelsRus.FILLED%>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="password">Пароль</label>
+                            <label class="form-label" for="password"><%=constants.labelsRus.PASSWORD%></label>
                             <input class="form-control" type="password" id="password" name="password" required>
                             <div class="valid-feedback">
-                                Заполнено!
+                                <%=constants.labelsRus.FILLED%>
                             </div>
                         </div>
-                        <button class="btn btn-success btn-block">Зарегистрировать</button>
+                        <button class="btn btn-success btn-block"><%=constants.labelsRus.SIGN_IN_BUTTON%></button>
                     </form>
                 </div>
             </div>

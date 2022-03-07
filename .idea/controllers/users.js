@@ -1,7 +1,9 @@
 const User = require('../models/user');
 
+const constants = require('../constants/constants.js');
+
 module.exports.renderRegister = (req, res) => {
-    res.render('users/register');
+    res.render('users/register', { constants });
 }
 
 module.exports.register = async (req, res, next) => {
@@ -21,7 +23,7 @@ module.exports.register = async (req, res, next) => {
 }
 
 module.exports.renderLogin = (req, res) => {
-    res.render('users/login');
+    res.render('users/login', { constants });
 }
 
 module.exports.login = (req, res) => {

@@ -18,6 +18,8 @@ const adminRoutes = require('./routes/admin');
 const newsRoutes = require('./routes/news');
 const userRoutes = require('./routes/users');
 
+const constants = require('./constants/constants.js');
+
 mongoose.connect('mongodb://localhost:27017/explore-it', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -71,7 +73,8 @@ app.use('/', newsRoutes);
 app.use('/', userRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home')
+    console.log('Constants: ', constants);
+    res.render('home', { constants })
 });
 
 
