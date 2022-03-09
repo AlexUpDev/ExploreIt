@@ -6,28 +6,9 @@ const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
 const pageLogin = constants.variables.PAGE_LOGIN;
+const pageRegister = constants.variables.PAGE_REGISTER;
 
 let pageInfo = { currentPage : '', language : '' };
-
-module.exports.renderRegister = (req, res) => {
-    res.render('users/register', { constants });
-}
-
-module.exports.register = async (req, res, next) => {
-    try {
-        const { email, username, password } = req.body;
-        const user = new User({ email, username, type: 'user', state: 'active'});
-        const registeredUser = await User.register(user, password);
-        req.login(registeredUser, err => {
-            if (err) return next(err);
-            req.flash('success', 'Добро пожаловать!');
-            res.redirect('/');
-        })
-    } catch (e) {
-        req.flash('error', e.message);
-        res.redirect('register');
-    }
-}
 
 module.exports.renderLoginEng = (req, res) => {
     pageInfo.language = languageEng;
@@ -46,6 +27,34 @@ module.exports.login = (req, res) => {
     const redirectUrl = req.session.returnTo || '/';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
+}
+
+module.exports.renderRegisterEng = (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageRegister;
+    res.render('users/register', { constants, pageInfo });
+}
+
+module.exports.renderRegisterRus = (req, res) => {
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = pageRegister;
+    res.render('users/register', { constants, pageInfo });
+}
+
+module.exports.register = async (req, res, next) => {
+    try {
+        const { email, username, password } = req.body;
+        const user = new User({ email, username, type: 'user', state: 'active'});
+        const registeredUser = await User.register(user, password);
+        req.login(registeredUser, err => {
+            if (err) return next(err);
+            req.flash('success', 'Добро пожаловать!');
+            res.redirect('/');
+        })
+    } catch (e) {
+        req.flash('error', e.message);
+        res.redirect('register');
+    }
 }
 
 module.exports.renderShowAll = async (req, res) => {

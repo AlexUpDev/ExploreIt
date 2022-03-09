@@ -62,13 +62,13 @@
                         <% } else { %>
                             class="nav-link"
                         <% } %>
-                       href= "
+
                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
-                            /rus/login
+                            href= "/rus/login"
                         <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
-                            /eng/login
+                            href= "/eng/login"
                         <% } %>
-                       "
+
                        id="login-link"
                     >
                         <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
@@ -77,7 +77,19 @@
                             <%=constants.labelsEng.LOG_IN%>
                         <% } %>
                     </a>
-                    <a class="nav-link" href="/register">
+                    <a
+                        <% if (pageInfo.currentPage === constants.variables.PAGE_REGISTER) { %>
+                            class="nav-link active"
+                        <% } else { %>
+                            class="nav-link"
+                        <% } %>
+
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            href= "/eng/register"
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            href= "/rus/register"
+                        <% } %>
+                    >
                         <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.SIGN_IN%>
                         <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
