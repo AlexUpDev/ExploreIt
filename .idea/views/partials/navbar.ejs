@@ -37,8 +37,14 @@
                     <% } else { %>
                         class="nav-link"
                     <% } %>
-                   aria-current="page"
-                   href="/eng"
+                    aria-current="page"
+                    <% if (pageInfo.currentPage === constants.variables.PAGE_LOGIN) { %>
+                        href="/eng/login"
+                    <% } else if (pageInfo.currentPage === constants.variables.PAGE_REGISTER) { %>
+                        href="/eng/register"
+                    <% } else { %>
+                        href="/eng"
+                    <% } %>
                 >
                     <%=constants.labelsLanguage.ENGLISH%>
                 </a>
@@ -49,7 +55,13 @@
                         class="nav-link"
                     <% } %>
                    aria-current="page"
-                   href="/rus"
+                    <% if (pageInfo.currentPage === constants.variables.PAGE_LOGIN) { %>
+                        href="/rus/login"
+                    <% } else if (pageInfo.currentPage === constants.variables.PAGE_REGISTER) { %>
+                        href="/rus/register"
+                    <% } else { %>
+                        href="/rus"
+                    <% } %>
                 >
                     <%=constants.labelsLanguage.RUSSIAN%>
                 </a>
