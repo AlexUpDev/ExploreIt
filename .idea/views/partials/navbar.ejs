@@ -7,48 +7,80 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="/">
-                    <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                <a
+                    <% if (pageInfo.currentPage === constants.variables.PAGE_MAIN) { %>
+                        class="nav-link active"
+                    <% } else { %>
+                        class="nav-link"
+                    <% } %>
+                   href="/"
+                >
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                         <%=constants.labelsRus.MAIN%>
-                    <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                         <%=constants.labelsEng.MAIN%>
                     <% } %>
                 </a>
                 <a class="nav-link" aria-current="page" href="/news">
-                    <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                         <%=constants.labelsRus.NEWS%>
-                    <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                         <%=constants.labelsEng.NEWS%>
                     <% } %>
                 </a>
                 <a class="nav-link" aria-current="page" href="#">Истории</a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a class="nav-link" aria-current="page" href="/eng">Eng</a>
-                <a class="nav-link" aria-current="page" href="/rus">Rus</a>
+                <a
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        class="nav-link active"
+                    <% } else { %>
+                        class="nav-link"
+                    <% } %>
+                   aria-current="page"
+                   href="/eng"
+                >
+                    <%=constants.labelsLanguage.ENGLISH%>
+                </a>
+                <a
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        class="nav-link active"
+                    <% } else { %>
+                        class="nav-link"
+                    <% } %>
+                   aria-current="page"
+                   href="/rus"
+                >
+                    <%=constants.labelsLanguage.RUSSIAN%>
+                </a>
             </div>
             <div class="navbar-nav ml-auto">
                 <% if(!currentUser) {%>
-                    <a class="nav-link"
+                    <a
+                        <% if (pageInfo.currentPage === constants.variables.PAGE_LOGIN) { %>
+                            class="nav-link active"
+                        <% } else { %>
+                            class="nav-link"
+                        <% } %>
                        href= "
-                       <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                       <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             /rus/login
-                        <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                             /eng/login
                         <% } %>
                        "
                        id="login-link"
                     >
-                        <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.LOG_IN%>
-                        <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                             <%=constants.labelsEng.LOG_IN%>
                         <% } %>
                     </a>
                     <a class="nav-link" href="/register">
-                        <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.SIGN_IN%>
-                        <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                             <%=constants.labelsEng.SIGN_IN%>
                         <% } %>
                     </a>
@@ -68,17 +100,17 @@
                     </a>
                     <% if(currentUser.type === 'admin') {%>
                         <a class="nav-link" href="/admin">
-                            <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                 <%=constants.labelsRus.SETUP%>
-                            <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                 <%=constants.labelsEng.SETUP%>
                             <% } %>
                         </a>
                     <% } %>
                     <a class="nav-link" href="/logout">
-                        <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.LOG_OUT%>
-                        <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                             <%=constants.labelsEng.LOG_OUT%>
                         <% } %>
                     </a>

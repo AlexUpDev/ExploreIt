@@ -23,6 +23,10 @@ const constants = require('./constants/constants.js');
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
+const mainPage = constants.variables.PAGE_MAIN;
+
+let pageInfo = { currentPage : '', language : '' };
+
 mongoose.connect('mongodb://localhost:27017/explore-it', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -80,12 +84,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/rus', (req, res) => {
-    const language = languageRus;
-    res.render('home', { constants, language})
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = mainPage;
+    res.render('main', { constants, pageInfo })
 });
 app.get('/eng', (req, res) => {
-    const language = languageEng;
-    res.render('home', { constants, language})
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = mainPage;
+    res.render('main', { constants, pageInfo })
 });
 
 

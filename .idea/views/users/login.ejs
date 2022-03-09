@@ -6,26 +6,26 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.LOG_IN%>
-                        <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                             <%=constants.labelsEng.LOG_IN%>
                         <% } %>
                     </h5>
                     <form action="/login" method="POST" class="validated-form" novalidate>
                         <div class="mb-3">
                             <label class="form-label" for="username">
-                                <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                                <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                     <%=constants.labelsRus.USERNAME%>
-                                <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                                <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                     <%=constants.labelsEng.USERNAME%>
                                 <% } %>
                             </label>
                             <input class="form-control" type="text" id="username" name="username" autofocus required>
                             <div class="valid-feedback">
-                                <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                                <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                     <%=constants.labelsRus.FILLED%>
-                                <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                                <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                     <%=constants.labelsEng.FILLED%>
                                 <% } %>
                             </div>
@@ -33,25 +33,25 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="password">
-                                <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                                <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                     <%=constants.labelsRus.PASSWORD%>
-                                <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                                <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                     <%=constants.labelsEng.PASSWORD%>
                                 <% } %>
                             </label>
                             <input class="form-control" type="password" id="password" name="password" required>
                             <div class="valid-feedback">
-                                <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                                <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                     <%=constants.labelsRus.FILLED%>
-                                <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                                <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                     <%=constants.labelsEng.FILLED%>
                                 <% } %>
                             </div>
                         </div>
                         <button class="btn btn-success btn-block">
-                            <% if (language === constants.variables.LANGUAGE_RUS) { %>
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                 <%=constants.labelsRus.LOG_IN_BUTTON%>
-                            <% } else if (language === constants.variables.LANGUAGE_ENG) { %>
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                 <%=constants.labelsEng.LOG_IN%>
                             <% } %>
                         </button>

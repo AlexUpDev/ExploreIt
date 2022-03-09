@@ -1,3 +1,8 @@
+module.exports.labelsLanguage = {
+    ENGLISH : 'English',
+    RUSSIAN : 'Русский',
+};
+
 module.exports.labelsEng = {
     EMAIL : 'Email',
     FILLED : 'Filled',
@@ -33,5 +38,13 @@ module.exports.labelsRus = {
 
 module.exports.variables = {
     LANGUAGE_ENG : 'eng',
-    LANGUAGE_RUS : 'rus'
+    LANGUAGE_RUS : 'rus',
+
+    PAGE_MAIN : 'main',
+    PAGE_NEWS : 'news',
+    PAGE_LOGIN : 'login',
+    PAGE_LOGOUT : 'logout',
+    PAGE_REGISTER : 'register',
+    PAGE_SETUP : 'setup',
+    PAGE_USERINFO : 'userinfo'
 }

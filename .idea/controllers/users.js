@@ -5,6 +5,10 @@ const constants = require('../constants/constants.js');
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
+const pageLogin = constants.variables.PAGE_LOGIN;
+
+let pageInfo = { currentPage : '', language : '' };
+
 module.exports.renderRegister = (req, res) => {
     res.render('users/register', { constants });
 }
@@ -26,13 +30,15 @@ module.exports.register = async (req, res, next) => {
 }
 
 module.exports.renderLoginEng = (req, res) => {
-    const language = languageEng;
-    res.render('users/login', { constants, language });
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageLogin;
+    res.render('users/login', { constants, pageInfo });
 }
 
 module.exports.renderLoginRus = (req, res) => {
-    const language = languageRus;
-    res.render('users/login', { constants, language });
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = pageLogin;
+    res.render('users/login', { constants, pageInfo });
 }
 
 module.exports.login = (req, res) => {
