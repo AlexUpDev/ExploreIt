@@ -40,6 +40,7 @@ module.exports.variables = {
     LANGUAGE_ENG : 'eng',
     LANGUAGE_RUS : 'rus',
 
+    PAGE_ALLUSERS : 'allusers',
     PAGE_MAIN : 'main',
     PAGE_NEWS : 'news',
     PAGE_LOGIN : 'login',

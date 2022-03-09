@@ -23,15 +23,20 @@ router.route('/rus/register')
     .get(users.renderRegisterRus)
     .post(catchAsync(users.register));
 
-router.get('/info', isLoggedIn, users.renderUserInfo)
+router.get('/eng/info', isLoggedIn, users.renderUserInfoEng)
 
-router.get('/users', isLoggedIn, users.renderShowAll)
+router.get('/rus/info', isLoggedIn, users.renderUserInfoRus)
+
+router.get('/eng/users', isLoggedIn, users.renderShowAllEng)
+
+router.get('/rus/users', isLoggedIn, users.renderShowAllRus)
 
 router.route('/users/:id')
-    .get(catchAsync(users.showEdit))
+    .get(catchAsync(users.showEdit));
     //.put(isLoggedIn, validateUser, catchAsync(users.updateUser))
     //.delete(isLoggedIn, catchAsync(users.deleteUser));
 
-router.get('/logout', users.logout)
+router.get('/eng/logout', users.logoutEng);
+router.get('/rus/logout', users.logoutRus);
 
 module.exports = router;

@@ -7,6 +7,8 @@ const languageRus = constants.variables.LANGUAGE_RUS;
 
 const pageLogin = constants.variables.PAGE_LOGIN;
 const pageRegister = constants.variables.PAGE_REGISTER;
+const pageUserinfo = constants.variables.PAGE_USERINFO;
+const pageAllUsers = constants.variables.PAGE_ALLUSERS;
 
 let pageInfo = { currentPage : '', language : '' };
 
@@ -57,13 +59,30 @@ module.exports.register = async (req, res, next) => {
     }
 }
 
-module.exports.renderShowAll = async (req, res) => {
+module.exports.renderShowAllEng = async (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageAllUsers;
     const users = await User.find({}).populate('popupText');
-    res.render('users/showAll', { constants, users });
+    res.render('users/showAll', { constants, pageInfo, users });
 }
 
-module.exports.renderUserInfo = (req, res) => {
-    res.render('users/info', { constants });
+module.exports.renderShowAllRus = async (req, res) => {
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = pageAllUsers;
+    const users = await User.find({}).populate('popupText');
+    res.render('users/showAll', { constants, pageInfo, users });
+}
+
+module.exports.renderUserInfoEng = (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageUserinfo;
+    res.render('users/info', { constants, pageInfo });
+}
+
+module.exports.renderUserInfoRus = (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageUserinfo;
+    res.render('users/info', { constants, pageInfo });
 }
 
 module.exports.showEdit = async (req, res) => {
@@ -93,9 +112,16 @@ module.exports.deleteUser = async (req, res) => {
 }
 */
 
-module.exports.logout = (req, res) => {
+module.exports.logoutEng = (req, res) => {
     req.logout();
     // req.session.destroy();
     req.flash('success', 'Ждем снова');
-    res.redirect('/');
+    res.redirect('/eng/');
+}
+
+module.exports.logoutRus = (req, res) => {
+    req.logout();
+    // req.session.destroy();
+    req.flash('success', 'Ждем снова');
+    res.redirect('/rus/');
 }
