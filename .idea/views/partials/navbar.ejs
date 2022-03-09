@@ -13,7 +13,12 @@
                     <% } else { %>
                         class="nav-link"
                     <% } %>
-                   href="/"
+
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        href="/eng"
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        href="/rus"
+                    <% } %>
                 >
                     <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                         <%=constants.labelsRus.MAIN%>
@@ -21,14 +26,27 @@
                         <%=constants.labelsEng.MAIN%>
                     <% } %>
                 </a>
-                <a class="nav-link" aria-current="page" href="/news">
-                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
-                        <%=constants.labelsRus.NEWS%>
-                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                <a
+                    <% if (pageInfo.currentPage === constants.variables.PAGE_NEWS) { %>
+                        class="nav-link active"
+                    <% } else { %>
+                        class="nav-link"
+                    <% } %>
+
+                    aria-current="page"
+
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        href="/eng/news"
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        href="/rus/news"
+                    <% } %>
+                >
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                         <%=constants.labelsEng.NEWS%>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.NEWS%>
                     <% } %>
                 </a>
-                <a class="nav-link" aria-current="page" href="#">Истории</a>
             </div>
             <div class="navbar-nav ml-auto">
                 <a

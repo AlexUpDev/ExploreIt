@@ -7,6 +7,7 @@ const news = require('../controllers/news');
 
 const { isLoggedIn } = require('../middleware');
 
-router.get('/news', news.renderNewsList);
+router.get('/eng/news', news.renderNewsListEng);
+router.get('/rus/news', news.renderNewsListRus);
 
 module.exports = router;
