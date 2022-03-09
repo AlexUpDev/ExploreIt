@@ -20,6 +20,9 @@ const userRoutes = require('./routes/users');
 
 const constants = require('./constants/constants.js');
 
+const languageEng = constants.variables.LANGUAGE_ENG;
+const languageRus = constants.variables.LANGUAGE_RUS;
+
 mongoose.connect('mongodb://localhost:27017/explore-it', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -73,7 +76,16 @@ app.use('/', newsRoutes);
 app.use('/', userRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home', { constants })
+    res.redirect('/rus');
+});
+
+app.get('/rus', (req, res) => {
+    const language = languageRus;
+    res.render('home', { constants, language})
+});
+app.get('/eng', (req, res) => {
+    const language = languageEng;
+    res.render('home', { constants, language})
 });
 
 

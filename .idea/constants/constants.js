@@ -15,7 +15,7 @@ module.exports.labelsEng = {
 };
 
 module.exports.labelsRus = {
-    EMAIL: 'Электронная почта',
+    EMAIL : 'Электронная почта',
     FILLED : 'Заполнено',
     GENERAL_INFO : 'Общая информация',
     LOG_IN : 'Вход',
@@ -30,3 +30,8 @@ module.exports.labelsRus = {
     SIGN_IN_BUTTON : 'Зарегистрировать',
     USERNAME : 'Имя пользователя'
 };
+
+module.exports.variables = {
+    LANGUAGE_ENG : 'eng',
+    LANGUAGE_RUS : 'rus'
+}

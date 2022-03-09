@@ -8,6 +8,9 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
+    language: {
+        type: String
+    },
     type: {
         type: String
     },

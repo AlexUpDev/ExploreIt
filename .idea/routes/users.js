@@ -11,9 +11,13 @@ router.route('/register')
     .get(users.renderRegister)
     .post(catchAsync(users.register));
 
-router.route('/login')
-    .get(users.renderLogin)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), users.login)
+router.route('/eng/login')
+    .get(users.renderLoginEng)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: 'eng/login' }), users.login)
+
+router.route('/rus/login')
+    .get(users.renderLoginRus)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: 'rus/login' }), users.login)
 
 router.get('/info', isLoggedIn, users.renderUserInfo)
 
