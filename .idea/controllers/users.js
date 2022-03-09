@@ -26,14 +26,14 @@ module.exports.renderLoginRus = (req, res) => {
 
 module.exports.loginEng = (req, res) => {
     req.flash('success', 'С возвращением!');
-    const redirectUrl = req.session.returnTo || '/eng/';
+    const redirectUrl = req.session.returnTo || '/eng';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
 }
 
 module.exports.loginRus = (req, res) => {
     req.flash('success', 'С возвращением!');
-    const redirectUrl = req.session.returnTo || '/rus/';
+    const redirectUrl = req.session.returnTo || '/rus';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
 }

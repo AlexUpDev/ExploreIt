@@ -149,7 +149,13 @@
                             <% } %>
                         </a>
                     <% } %>
-                    <a class="nav-link" href="/logout">
+                    <a class="nav-link"
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            href="/rus/logout"
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            href="/eng/logout"
+                        <% } %>
+                    >
                         <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                             <%=constants.labelsRus.LOG_OUT%>
                         <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>

@@ -12,7 +12,16 @@
                             <%=constants.labelsEng.LOG_IN%>
                         <% } %>
                     </h5>
-                    <form action="/login" method="POST" class="validated-form" novalidate>
+                    <form
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            action="/rus/login"
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            action="/eng/login"
+                        <% } %>
+                        method="POST"
+                        class="validated-form"
+                        novalidate
+                    >
                         <div class="mb-3">
                             <label class="form-label" for="username">
                                 <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>

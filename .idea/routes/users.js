@@ -9,11 +9,11 @@ const { isActive, isLoggedIn, validateUser } = require('../middleware');
 
 router.route('/eng/login')
     .get(users.renderLoginEng)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: 'eng/login' }), users.loginEng)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/eng/login' }), users.loginEng)
 
 router.route('/rus/login')
     .get(users.renderLoginRus)
-    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: 'rus/login' }), users.loginRus)
+    .post(passport.authenticate('local', { failureFlash: true, failureRedirect: '/rus/login' }), users.loginRus)
 
 router.route('/eng/register')
     .get(users.renderRegisterEng)
