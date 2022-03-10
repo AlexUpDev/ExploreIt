@@ -15,7 +15,7 @@
                     <% } %>
 
                     <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
-                        href="/eng"
+                        href=getLink<%=getLink(pageInfo.currentPage, pageInfo.language)%>
                     <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                         href="/rus"
                     <% } %>
@@ -60,6 +60,8 @@
                         href="/eng/login"
                     <% } else if (pageInfo.currentPage === constants.variables.PAGE_REGISTER) { %>
                         href="/eng/register"
+                    <% } else if (pageInfo.currentPage === constants.variables.PAGE_SETUP_OVERVIEW) { %>
+                        href="/eng/admin"
                     <% } else { %>
                         href="/eng"
                     <% } %>
@@ -77,6 +79,8 @@
                         href="/rus/login"
                     <% } else if (pageInfo.currentPage === constants.variables.PAGE_REGISTER) { %>
                         href="/rus/register"
+                    <% } else if (pageInfo.currentPage === constants.variables.PAGE_SETUP_OVERVIEW) { %>
+                        href="/rus/admin"
                     <% } else { %>
                         href="/rus"
                     <% } %>
@@ -141,7 +145,19 @@
                         </svg>
                     </a>
                     <% if(currentUser.type === 'admin') {%>
-                        <a class="nav-link" href="/admin">
+                        <a
+                            <% if (pageInfo.currentPage === constants.variables.PAGE_SETUP_OVERVIEW) { %>
+                                class="nav-link active"
+                            <% } else { %>
+                                class="nav-link"
+                            <% } %>
+
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                href="/rus/admin"
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                href="/eng/admin"
+                            <% } %>
+                        >
                             <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                 <%=constants.labelsRus.SETUP%>
                             <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>

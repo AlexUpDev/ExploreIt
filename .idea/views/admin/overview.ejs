@@ -4,7 +4,13 @@
     <div class="col-6">
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title">Администрирование</h4>
+                <h4 class="card-title">
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        <%=constants.labelsEng.ADMINISTRATION%>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.ADMINISTRATION%>
+                    <% } %>
+                </h4>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -14,7 +20,19 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a aria-current="page" href="/users">Пользователи</a>
+                                <a aria-current="page"
+                                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                        href="/eng/users"
+                                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                        href="/rus/users"
+                                    <% } %>
+                                >
+                                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                        <%=constants.labelsEng.USERS%>
+                                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                        <%=constants.labelsRus.USERS%>
+                                    <% } %>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

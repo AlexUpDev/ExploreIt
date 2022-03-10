@@ -4,6 +4,7 @@ module.exports.labelsLanguage = {
 };
 
 module.exports.labelsEng = {
+    ADMINISTRATION : 'Administration',
     EMAIL : 'Email',
     FILLED : 'Filled',
     GENERAL_INFO : 'General information',
@@ -16,10 +17,12 @@ module.exports.labelsEng = {
     PROFILE : 'Profile',
     SETUP : 'Setup',
     SIGN_IN : 'Sign in',
-    USERNAME : 'Username'
+    USERNAME : 'Username',
+    USERS : 'Users'
 };
 
 module.exports.labelsRus = {
+    ADMINISTRATION : 'Администрирование',
     EMAIL : 'Электронная почта',
     FILLED : 'Заполнено',
     GENERAL_INFO : 'Общая информация',
@@ -33,7 +36,8 @@ module.exports.labelsRus = {
     SETUP : 'Настройки',
     SIGN_IN : 'Регистрация',
     SIGN_IN_BUTTON : 'Зарегистрировать',
-    USERNAME : 'Имя пользователя'
+    USERNAME : 'Имя пользователя',
+    USERS : 'Пользователи'
 };
 
 module.exports.variables = {
@@ -46,6 +50,6 @@ module.exports.variables = {
     PAGE_LOGIN : 'login',
     PAGE_LOGOUT : 'logout',
     PAGE_REGISTER : 'register',
-    PAGE_SETUP : 'setup',
+    PAGE_SETUP_OVERVIEW : 'setupoverview',
     PAGE_USERINFO : 'userinfo'
 }

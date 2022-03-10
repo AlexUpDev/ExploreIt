@@ -7,6 +7,8 @@ const admin = require('../controllers/admin');
 
 const { isLoggedIn } = require('../middleware');
 
-router.get('/admin', admin.renderOverview);
+router.get('/eng/admin', admin.renderOverviewEng);
+
+router.get('/rus/admin', admin.renderOverviewRus);
 
 module.exports = router;
