@@ -14,11 +14,7 @@
                         class="nav-link"
                     <% } %>
 
-                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
-                        href=getLink<%=getLink(pageInfo.currentPage, pageInfo.language)%>
-                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
-                        href="/rus"
-                    <% } %>
+                    href=<%=pageInfo.getLink(pageInfo, constants.variables.PAGE_MAIN)%>
                 >
                     <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                         <%=constants.labelsRus.MAIN%>
@@ -35,11 +31,7 @@
 
                     aria-current="page"
 
-                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
-                        href="/eng/news"
-                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
-                        href="/rus/news"
-                    <% } %>
+                    href=<%=pageInfo.getLink(pageInfo, constants.variables.PAGE_NEWS)%>
                 >
                     <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                         <%=constants.labelsEng.NEWS%>

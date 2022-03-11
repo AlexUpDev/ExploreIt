@@ -20,12 +20,14 @@ const userRoutes = require('./routes/users');
 
 const constants = require('./constants/constants.js');
 
+const navigationManager = require('./navigationManager.js');
+
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
 const mainPage = constants.variables.PAGE_MAIN;
 
-let pageInfo = { currentPage : '', language : '' };
+let pageInfo = { currentPage : '', language : '', getLink : navigationManager.getLink };
 
 mongoose.connect('mongodb://localhost:27017/explore-it', {
     useNewUrlParser: true,
@@ -86,6 +88,7 @@ app.get('/', (req, res) => {
 app.get('/rus', (req, res) => {
     pageInfo.language = languageRus;
     pageInfo.currentPage = mainPage;
+
     res.render('main', { constants, pageInfo })
 });
 app.get('/eng', (req, res) => {
