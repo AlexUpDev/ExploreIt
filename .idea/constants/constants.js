@@ -3,6 +3,12 @@ module.exports.labelsLanguage = {
     RUSSIAN : 'Русский',
 };
 
+module.exports.profiles = {
+    ADMIN : 'admin',
+    STANDARD_USER : 'user'
+};
+
+
 module.exports.labelsEng = {
     ADMINISTRATION : 'Administration',
     EMAIL : 'Email',

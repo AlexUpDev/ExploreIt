@@ -88,7 +88,7 @@ module.exports.renderUserInfoEng = (req, res) => {
 }
 
 module.exports.renderUserInfoRus = (req, res) => {
-    pageInfo.language = languageEng;
+    pageInfo.language = languageRus;
     pageInfo.currentPage = pageUserinfo;
     res.render('users/info', { constants, pageInfo });
 }

@@ -22,6 +22,7 @@ const login_dir = '/login';
 const logout_dir = '/logout';
 const news_dir = '/news';
 const register_dir = '/register';
+const userinfo_dir = '/info';
 
 module.exports.pageInfo = {
     currentPage : '',
@@ -52,6 +53,8 @@ module.exports.pageInfo = {
         } else if (newPage === pageEng || newPage === pageRus) {
             if (pageInfo.currentPage === pageNews) {
                 return link += news_dir;
+            } else if (pageInfo.currentPage === pageUserinfo) {
+                return link += userinfo_dir;
             } else if (pageInfo.currentPage === pageLogin) {
                 return link += login_dir;
             } else if (pageInfo.currentPage === pageRegister) {
@@ -61,6 +64,9 @@ module.exports.pageInfo = {
             } else {
                 return link;
             }
+
+        } else if (newPage === pageUserinfo) {
+            return link += userinfo_dir;
 
         } else if (newPage === pageLogin) {
             return link += login_dir;

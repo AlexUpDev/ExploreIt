@@ -5,16 +5,39 @@
 
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title"><%=constants.labelsRus.GENERAL_INFO%></h5>
+                <h5 class="card-title">
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        <%=constants.labelsEng.GENERAL_INFO%>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.GENERAL_INFO%>
+                    <% } %>
+                </h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><%=constants.labelsRus.USERNAME%>: <%= currentUser.username%></li>
-                <% if(currentUser.type !== 'user') {%>
-                    <li class="list-group-item"><%=constants.labelsRus.PROFILE%>: <%= currentUser.type%></li>
+                <li class="list-group-item">
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        <%=constants.labelsEng.USERNAME%>:
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.USERNAME%>:
+                    <% } %>
+                    <%= currentUser.username%></li>
+                <% if(currentUser.type !== constants.profiles.STANDARD_USER) {%>
+                    <li class="list-group-item">
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            <%=constants.labelsEng.PROFILE%>:
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            <%=constants.labelsRus.PROFILE%>:
+                        <% } %>
+                        <%= currentUser.type%></li>
                 <% } %>
-                <li class="list-group-item"><%=constants.labelsRus.EMAIL%>: <%= currentUser.email%></li>
+                <li class="list-group-item">
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        <%=constants.labelsEng.EMAIL%>:
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.EMAIL%>:
+                    <% } %>
+                    <%= currentUser.email%></li>
             </ul>
         </div>
-
     </div>
 </div>
