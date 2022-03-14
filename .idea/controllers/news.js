@@ -1,13 +1,12 @@
 const constants = require("../constants/constants");
 
-const navigationManager = require("../navigationManager");
+const navigationManager = require('../navigationManager.js');
+let pageInfo = navigationManager.pageInfo;
 
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
 const pageMews = constants.variables.PAGE_NEWS;
-
-let pageInfo = { currentPage : '', language : '', getLink : navigationManager.getLink };
 
 module.exports.renderNewsListEng = (req, res) => {
     pageInfo.language = languageEng;

@@ -23,51 +23,57 @@ const logout_dir = '/logout';
 const news_dir = '/news';
 const register_dir = '/register';
 
-module.exports.getLink = (pageInfo, newPage) => {
+module.exports.pageInfo = {
+    currentPage : '',
+    language : '',
+    getLink : getLink = (pageInfo, newPage) => {
 
-    let link = '';
+        let link = '';
 
-    if (newPage === pageEng) {
-        link += eng_dir;
-    } else if (newPage === pageRus) {
-        link += rus_dir;
-    } else {
-        if (pageInfo.language === languageEng) {
+        if (newPage === pageEng) {
             link += eng_dir;
-        } else if (pageInfo.language === languageRus) {
+        } else if (newPage === pageRus) {
             link += rus_dir;
-        }
-    }
-
-
-    if (newPage === pageMain) {
-        return link;
-
-    } else if (newPage === pageNews) {
-        return link += news_dir;
-
-    } else if (newPage === pageEng || newPage === pageRus) {
-        if (pageInfo.currentPage === pageLogin) {
-            return link += login_dir;
-        } else if (pageInfo.currentPage === pageRegister) {
-            return link += register_dir;
-        } else if (pageInfo.currentPage === pageSetupOverview) {
-            return link += admin_dir;;
         } else {
-            return link;
+            if (pageInfo.language === languageEng) {
+                link += eng_dir;
+            } else if (pageInfo.language === languageRus) {
+                link += rus_dir;
+            }
         }
 
-    } else if (newPage === pageLogin) {
-        return link += login_dir;
 
-    } else if (newPage === pageRegister) {
-        return link += register_dir;
+        if (newPage === pageMain) {
+            return link;
 
-    } else if (newPage === pageSetupOverview) {
-        return link += admin_dir;
+        } else if (newPage === pageNews) {
+            return link += news_dir;
 
-    } else if (newPage === pageLogout) {
-        return link += logout_dir;
+        } else if (newPage === pageEng || newPage === pageRus) {
+            if (pageInfo.currentPage === pageNews) {
+                return link += news_dir;
+            } else if (pageInfo.currentPage === pageLogin) {
+                return link += login_dir;
+            } else if (pageInfo.currentPage === pageRegister) {
+                return link += register_dir;
+            } else if (pageInfo.currentPage === pageSetupOverview) {
+                return link += admin_dir;
+            } else {
+                return link;
+            }
+
+        } else if (newPage === pageLogin) {
+            return link += login_dir;
+
+        } else if (newPage === pageRegister) {
+            return link += register_dir;
+
+        } else if (newPage === pageSetupOverview) {
+            return link += admin_dir;
+
+        } else if (newPage === pageLogout) {
+            return link += logout_dir;
+        }
     }
 }
 

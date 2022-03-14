@@ -3,14 +3,13 @@ const User = require('../models/user');
 
 const constants = require('../constants/constants.js');
 
-const navigationManager = require("../navigationManager");
+const navigationManager = require('../navigationManager.js');
+let pageInfo = navigationManager.pageInfo;
 
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
 
 const pageSetupOverview = constants.variables.PAGE_SETUP_OVERVIEW;
-
-let pageInfo = { currentPage : '', language : '', getLink : navigationManager.getLink };
 
 module.exports.renderOverviewEng = async (req, res) => {
     pageInfo.language = languageEng;

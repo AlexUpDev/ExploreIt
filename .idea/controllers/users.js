@@ -3,6 +3,7 @@ const User = require('../models/user');
 const constants = require('../constants/constants.js');
 
 const navigationManager = require('../navigationManager.js');
+let pageInfo = navigationManager.pageInfo;
 
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
@@ -11,8 +12,6 @@ const pageLogin = constants.variables.PAGE_LOGIN;
 const pageRegister = constants.variables.PAGE_REGISTER;
 const pageUserinfo = constants.variables.PAGE_USERINFO;
 const pageAllUsers = constants.variables.PAGE_ALLUSERS;
-
-let pageInfo = { currentPage : '', language : '', getLink : navigationManager.getLink };
 
 module.exports.renderLoginEng = (req, res) => {
     pageInfo.language = languageEng;
