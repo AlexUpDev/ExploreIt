@@ -20,8 +20,8 @@ const userRoutes = require('./routes/users');
 
 const constants = require('./constants/constants.js');
 
-const navigationManager = require('./navigationManager.js');
-let pageInfo = navigationManager.pageInfo;
+const pageManager = require('./pageManager.js');
+let pageInfo = pageManager.pageInfo;
 
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
@@ -85,7 +85,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/rus', (req, res) => {
-    console.log('PageInfo: ', pageInfo);
     pageInfo.language = languageRus;
     pageInfo.currentPage = mainPage;
 

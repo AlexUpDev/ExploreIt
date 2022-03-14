@@ -1,7 +1,7 @@
 const constants = require("../constants/constants");
 
-const navigationManager = require('../navigationManager.js');
-let pageInfo = navigationManager.pageInfo;
+const pageManager = require('../pageManager.js');
+let pageInfo = pageManager.pageInfo;
 
 const languageEng = constants.variables.LANGUAGE_ENG;
 const languageRus = constants.variables.LANGUAGE_RUS;
