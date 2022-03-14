@@ -18,6 +18,7 @@ const eng_dir = '/eng';
 const rus_dir = '/rus';
 
 const admin_dir = '/admin';
+const allusers_dir = '/users';
 const login_dir = '/login';
 const logout_dir = '/logout';
 const news_dir = '/news';
@@ -61,6 +62,8 @@ module.exports.pageInfo = {
                 return link += register_dir;
             } else if (pageInfo.currentPage === pageSetupOverview) {
                 return link += admin_dir;
+            } else if (pageInfo.currentPage === pageAllUsers) {
+                return link += allusers_dir;
             } else {
                 return link;
             }
@@ -76,6 +79,9 @@ module.exports.pageInfo = {
 
         } else if (newPage === pageSetupOverview) {
             return link += admin_dir;
+
+        } else if (newPage === pageAllUsers) {
+            return link += allusers_dir;
 
         } else if (newPage === pageLogout) {
             return link += logout_dir;

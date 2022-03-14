@@ -7,13 +7,21 @@
                 <nav class="mb-4">
                     <a class="btn btn-dark" href="/admin">Вернуться</a>
                 </nav>
-                <h5 class="card-title">Пользователи</h5>
+                <h5 class="card-title">
+                    Пользователи
+                </h5>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Имя</th>
-                        <th scope="col">Профиль</th>
-                        <th scope="col">Email</th>
+                        <th scope="col">
+                            Имя
+                        </th>
+                        <th scope="col">
+                            Профиль
+                        </th>
+                        <th scope="col">
+                            Email
+                        </th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -24,7 +32,9 @@
                             <td><%= user.type%></td>
                             <td><%= user.email%></td>
                             <td>
-                                <a class="btn btn-warning" href="/users/<%=user._id%>">Редактировать</a>
+                                <a class="btn btn-warning" href="/users/<%=user._id%>">
+                                    Редактировать
+                                </a>
                             </td>
                         </tr>
                     <% }%>

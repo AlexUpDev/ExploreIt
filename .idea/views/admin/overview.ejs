@@ -21,11 +21,7 @@
                         <tr>
                             <td>
                                 <a aria-current="page"
-                                    <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
-                                        href="/eng/users"
-                                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
-                                        href="/rus/users"
-                                    <% } %>
+                                   href=<%=pageInfo.getLink(pageInfo, constants.variables.PAGE_ALLUSERS)%>
                                 >
                                     <% if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
                                         <%=constants.labelsEng.USERS%>
