@@ -54,7 +54,15 @@
                             <td><%= user.type%></td>
                             <td><%= user.email%></td>
                             <td>
-                                <a class="btn btn-warning" href="/users/<%=user._id%>">
+                                <a
+                                    class="btn btn-warning"
+
+                                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                        href="/rus/users/<%=user._id%>"
+                                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                        href="/eng/users/<%=user._id%>"
+                                    <% } %>
+                                >
                                     <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
                                         <%=constants.labelsRus.EDIT%>
                                     <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>

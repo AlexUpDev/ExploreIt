@@ -31,10 +31,15 @@ router.get('/eng/users', isLoggedIn, users.renderShowAllEng)
 
 router.get('/rus/users', isLoggedIn, users.renderShowAllRus)
 
-router.route('/users/:id')
-    .get(catchAsync(users.showEdit));
+router.route('/eng/users/:id')
+    .get(catchAsync(users.showEditEng))
     //.put(isLoggedIn, validateUser, catchAsync(users.updateUser))
-    //.delete(isLoggedIn, catchAsync(users.deleteUser));
+    .delete(isLoggedIn, catchAsync(users.deleteUserEng));
+
+router.route('/rus/users/:id')
+    .get(catchAsync(users.showEditRus))
+    //.put(isLoggedIn, validateUser, catchAsync(users.updateUser))
+    .delete(isLoggedIn, catchAsync(users.deleteUserRus));
 
 router.get('/eng/logout', users.logoutEng);
 router.get('/rus/logout', users.logoutRus);

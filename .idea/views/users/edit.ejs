@@ -14,9 +14,20 @@
                 <li class="list-group-item">Электронная почта: <%= user.email%></li>
                 <li class="list-group-item">
                     <% if(currentUser.type === 'admin') {%>
-                        <a class="btn btn-warning" href="#">Заблокировать</a>
+                        <a class="btn btn-warning" href="#">
+                            Заблокировать
+                        </a>
                     <% } %>
-                    <a class="btn btn-danger" href="#">Удалить</a>
+                    <form
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            action="/rus/users/<%=user._id%>?_method=DELETE"
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            action="/rus/users/<%=user._id%>?_method=DELETE"
+                        <% } %>
+                        method="POST"
+                    >
+                        <button class="btn btn-sm d-inline btn-danger">Delete</button>
+                    </form>
                 </li>
             </ul>
         </div>

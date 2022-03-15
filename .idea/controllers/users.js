@@ -93,14 +93,26 @@ module.exports.renderUserInfoRus = (req, res) => {
     res.render('users/info', { constants, pageInfo });
 }
 
-module.exports.showEdit = async (req, res) => {
-
+module.exports.showEditEng = async (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageUserinfo;
     const user = await User.findById(req.params.id);
     if (!user) {
         req.flash('error', 'Cannot find User!');
-        return res.redirect('/users');
+        return res.redirect('/eng/users');
     }
-    res.render('users/edit', { constants, user });
+    res.render('users/edit', { constants, pageInfo, user });
+}
+
+module.exports.showEditRus = async (req, res) => {
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = pageUserinfo;
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        req.flash('error', 'Cannot find User!');
+        return res.redirect('/rus/users');
+    }
+    res.render('users/edit', { constants, pageInfo, user });
 }
 /*
 module.exports.updateUser = async (req, res) => {
@@ -111,14 +123,26 @@ module.exports.updateUser = async (req, res) => {
     req.flash('success', 'Successfully updated campground!');
     res.redirect(`/users/${user._id}`)
 }
+*/
 
-module.exports.deleteUser = async (req, res) => {
+module.exports.deleteUserEng = async (req, res) => {
+    pageInfo.language = languageEng;
+    pageInfo.currentPage = pageUserinfo;
     const { id } = req.params;
     await User.findByIdAndDelete(id);
-    req.flash('success', 'Successfully deleted campground')
-    res.redirect('/admin');
+    req.flash('success', 'Пользователь удален')
+    res.redirect('/rus/admin', { pageInfo });
 }
-*/
+
+module.exports.deleteUserRus = async (req, res) => {
+    pageInfo.language = languageRus;
+    pageInfo.currentPage = pageUserinfo;
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted User')
+    res.redirect('/eng/admin', { pageInfo });
+}
+
 
 module.exports.logoutEng = (req, res) => {
     req.logout();
