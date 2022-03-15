@@ -5,22 +5,44 @@
         <div class="card mb-3">
             <div class="card-body">
                 <nav class="mb-4">
-                    <a class="btn btn-dark" href="/admin">Вернуться</a>
+                    <a class="btn btn-dark" href="/admin">
+                        <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                            <%=constants.labelsRus.RETURN%>
+                        <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                            <%=constants.labelsEng.RETURN%>
+                        <% } %>
+                    </a>
                 </nav>
                 <h5 class="card-title">
-                    Пользователи
+                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                        <%=constants.labelsRus.USERS%>
+                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                        <%=constants.labelsEng.USERS%>
+                    <% } %>
                 </h5>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">
-                            Имя
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                <%=constants.labelsRus.NAME%>
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                <%=constants.labelsEng.NAME%>
+                            <% } %>
                         </th>
                         <th scope="col">
-                            Профиль
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                <%=constants.labelsRus.PROFILE%>
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                <%=constants.labelsEng.PROFILE%>
+                            <% } %>
                         </th>
                         <th scope="col">
-                            Email
+                            <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                <%=constants.labelsRus.EMAIL%>
+                            <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                <%=constants.labelsEng.EMAIL%>
+                            <% } %>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -33,7 +55,11 @@
                             <td><%= user.email%></td>
                             <td>
                                 <a class="btn btn-warning" href="/users/<%=user._id%>">
-                                    Редактировать
+                                    <% if (pageInfo.language === constants.variables.LANGUAGE_RUS) { %>
+                                        <%=constants.labelsRus.EDIT%>
+                                    <% } else if (pageInfo.language === constants.variables.LANGUAGE_ENG) { %>
+                                        <%=constants.labelsEng.EDIT%>
+                                    <% } %>
                                 </a>
                             </td>
                         </tr>

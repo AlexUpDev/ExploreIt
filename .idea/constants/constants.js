@@ -3,14 +3,9 @@ module.exports.labelsLanguage = {
     RUSSIAN : 'Русский',
 };
 
-module.exports.profiles = {
-    ADMIN : 'admin',
-    STANDARD_USER : 'user'
-};
-
-
 module.exports.labelsEng = {
     ADMINISTRATION : 'Administration',
+    EDIT : 'Edit',
     EMAIL : 'Email',
     FILLED : 'Filled',
     GENERAL_INFO : 'General information',
@@ -18,9 +13,11 @@ module.exports.labelsEng = {
     LOG_IN_BUTTON: 'Log in',
     LOG_OUT : 'Log out',
     MAIN : 'Main',
+    NAME : 'Name',
     NEWS : 'News',
     PASSWORD : 'Password',
     PROFILE : 'Profile',
+    RETURN : 'Return',
     SETUP : 'Setup',
     SIGN_IN : 'Sign in',
     USERNAME : 'Username',
@@ -29,6 +26,7 @@ module.exports.labelsEng = {
 
 module.exports.labelsRus = {
     ADMINISTRATION : 'Администрирование',
+    EDIT : 'Редактировать',
     EMAIL : 'Электронная почта',
     FILLED : 'Заполнено',
     GENERAL_INFO : 'Общая информация',
@@ -36,14 +34,21 @@ module.exports.labelsRus = {
     LOG_IN_BUTTON: 'Войти',
     LOG_OUT : 'Выход',
     MAIN : 'Главная',
+    NAME : 'Имя',
     NEWS : 'Новости',
     PASSWORD : 'Пароль',
     PROFILE : 'Профиль',
+    RETURN : 'Вернуться',
     SETUP : 'Настройки',
     SIGN_IN : 'Регистрация',
     SIGN_IN_BUTTON : 'Зарегистрировать',
     USERNAME : 'Имя пользователя',
     USERS : 'Пользователи'
+};
+
+module.exports.profiles = {
+    ADMIN : 'admin',
+    STANDARD_USER : 'user'
 };
 
 module.exports.variables = {
